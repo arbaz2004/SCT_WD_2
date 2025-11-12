@@ -1,24 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stopwatch Web App</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stopwatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>⏱ Stopwatch</h1>
-    <div class="timer" id="display">00:00:00</div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
 
-    <div class="buttons">
-      <button id="start">Start</button>
-      <button id="pause">Pause</button>
-      <button id="reset">Reset</button>
-      <button id="lap">Lap</button>
+  <div class="container">
+    <h2>⏱Stopwatch</h2>
+    <div class="circle">
+      <svg viewBox="0 0 120 120" width="240" height="240">
+        <circle cx="60" cy="60" r="54" stroke="#2a2a2a" stroke-width="8" fill="none" />
+        <circle id="progress" cx="60" cy="60" r="54" stroke="url(#grad)" stroke-width="8" stroke-linecap="round" fill="none" stroke-dasharray="339.292" stroke-dashoffset="339.292">
+          <defs>
+            <linearGradient id="grad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#ffaf6d" />
+              <stop offset="100%" stop-color="#ff5500" />
+            </linearGradient>
+          </defs>
+        </circle>
+      </svg>
+      <div class="time-display" id="time">00:00:00</div>
     </div>
 
-    <ul id="laps"></ul>
+    <div class="controls">
+      <button id="startStop" class="start">Start</button>
+      <button id="lap">Lap</button>
+      <button id="reset">Reset</button>
+    </div>
+
+    <div class="laps" id="laps"><p style="text-align:center;color:var(--muted);">No laps yet</p></div>
   </div>
 
   <script src="script.js"></script>
